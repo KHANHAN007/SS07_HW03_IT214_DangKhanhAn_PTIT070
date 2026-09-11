@@ -1,0 +1,74 @@
+{
+  "info": {
+    "name": "FinBank SS07 HW03",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get account 1001",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8222/api/accounts/1001"
+      }
+    },
+    {
+      "name": "Get account 1002",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8222/api/accounts/1002"
+      }
+    },
+    {
+      "name": "TC1 Transfer success 1001 to 1002",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fromAccountNumber\": \"1001\",\n  \"toAccountNumber\": \"1002\",\n  \"amount\": 2000000,\n  \"description\": \"Chuyen tien thanh toan hoa don\"\n}"
+        },
+        "url": "http://localhost:8222/api/transactions/transfer"
+      }
+    },
+    {
+      "name": "TC2 Transfer failed insufficient balance",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fromAccountNumber\": \"1001\",\n  \"toAccountNumber\": \"1002\",\n  \"amount\": 100000000,\n  \"description\": \"Thu chuyen qua so du\"\n}"
+        },
+        "url": "http://localhost:8222/api/transactions/transfer"
+      }
+    },
+    {
+      "name": "TC3 Transfer failed target account not found",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fromAccountNumber\": \"1001\",\n  \"toAccountNumber\": \"9999\",\n  \"amount\": 500000,\n  \"description\": \"Chuyen toi tai khoan khong ton tai\"\n}"
+        },
+        "url": "http://localhost:8222/api/transactions/transfer"
+      }
+    }
+  ]
+}
+

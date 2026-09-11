@@ -1,0 +1,7 @@
+rootProject.name = 'SS07_HW03_IT214_DangKhanhAn_PTIT070'
+
+include 'discovery-server'
+include 'api-gateway'
+include 'account-service'
+include 'transaction-service'
+
