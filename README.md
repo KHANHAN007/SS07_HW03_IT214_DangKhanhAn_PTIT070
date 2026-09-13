@@ -1,9 +1,5 @@
 # SS07 HW03: Giao tiếp đồng bộ giữa Microservice bằng RestTemplate
 
-**Sinh viên:** Dang Khanh An  
-**Lớp:** IT214  
-**Mã:** PTIT070
-
 ## Mục tiêu
 
 Bài này xây dựng luồng chuyển tiền cho hệ thống FinBank. `transaction-service` nhận yêu cầu chuyển tiền, sau đó gọi `account-service` bằng `RestTemplate` có `@LoadBalanced` để kiểm tra tài khoản, kiểm tra số dư, trừ tiền nguồn, cộng tiền đích và lưu bản ghi giao dịch.
